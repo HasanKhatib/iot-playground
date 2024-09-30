@@ -5,6 +5,7 @@ void question2();
 void question3();
 void question4();
 void question5();
+void question6();
 
 void setup() {
   Serial.begin(9600);
@@ -20,6 +21,8 @@ void setup() {
   question4();
   #elif QUESTION == 5
   question5();
+  #elif QUESTION == 6
+  question6();
   #else
   Serial.println("No valid QUESTION defined.");
   #endif

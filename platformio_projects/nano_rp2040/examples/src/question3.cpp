@@ -7,12 +7,12 @@ Use the example codes during lecture and make modifications where necessary.
 #include <macros.h>
 #include <stdint.h>
 
-const int buttonPin = 3; // Button connected to pin 3
-const int ledPin = 2;    // External LED connected to pin 2
+const int buttonPin = 3;
+const int ledPin = 2;
 
-int counter = 0;            // Counter to track which color to display
-bool buttonState = LOW;     // Current state of the button
-bool lastButtonState = LOW; // Previous state of the button
+int counter = 0;
+bool buttonState = LOW;
+bool lastButtonState = LOW;
 
 void question3()
 {
@@ -39,28 +39,26 @@ void question3()
       // Increment the counter and wrap it around if it exceeds 2
       counter = (counter + 1) % 3;
 
-      // Update the RGB LED based on the counter
       switch (counter)
       {
       case 0:
-        digitalWrite(LEDR, HIGH); // Red on
-        digitalWrite(LEDG, LOW);  // Green off
-        digitalWrite(LEDB, LOW);  // Blue off
+        digitalWrite(LEDR, HIGH);
+        digitalWrite(LEDG, LOW);
+        digitalWrite(LEDB, LOW);
         break;
       case 1:
-        digitalWrite(LEDR, LOW);  // Red off
-        digitalWrite(LEDG, HIGH); // Green on
-        digitalWrite(LEDB, LOW);  // Blue off
+        digitalWrite(LEDR, LOW);
+        digitalWrite(LEDG, HIGH);
+        digitalWrite(LEDB, LOW);
         break;
       case 2:
-        digitalWrite(LEDR, LOW);  // Red off
-        digitalWrite(LEDG, LOW);  // Green off
-        digitalWrite(LEDB, HIGH); // Blue on
+        digitalWrite(LEDR, LOW);
+        digitalWrite(LEDG, LOW);
+        digitalWrite(LEDB, HIGH);
         break;
       }
+      // Update the last button state for the next iteration
+      lastButtonState = buttonState;
     }
-
-    // Update the last button state for the next iteration
-    lastButtonState = buttonState;
   }
 }
